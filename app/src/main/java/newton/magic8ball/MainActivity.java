@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.os.Vibrator;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private ShakeDetector mShakeDetector;
-    private String[] response = {
+    /*private String[] response = {
             "It is certain",
             "It is decidedly so",
             "Without a doubt",
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             "Outlook not so good",
             "Very doubtful"
     };
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +77,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void handleShakeEvent() {
+        //generate a number between 0 - 19.  This correlates to the background image name.
         int random = new Random().nextInt(20) + 0;
-        Toast.makeText(getApplicationContext(), response[random].toString(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), response[random].toString(), Toast.LENGTH_LONG).show();
+        //Drawable answerTriangle = context.getResources().getDrawable(R.drawable.answer);
+        //Will need to incorperate a method that does the above to a different view than main_activity
+        shakeVibrationEvent();
+    }
+    
+    public void shakeVibrationEvent() {
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        // Vibrate for 500 milliseconds
+        v.vibrate(500);
     }
 }
