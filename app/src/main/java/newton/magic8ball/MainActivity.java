@@ -1,6 +1,7 @@
 package newton.magic8ball;
 
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
@@ -77,12 +78,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void handleShakeEvent() {
+        Intent intent = new Intent(this, BallScreenActivity.class);
         //generate a number between 0 - 19.  This correlates to the background image name.
-        int random = new Random().nextInt(20) + 0;
+        //int random = new Random().nextInt(20) + 0;
+        startActivity(intent);
         //Toast.makeText(getApplicationContext(), response[random].toString(), Toast.LENGTH_LONG).show();
         //Drawable answerTriangle = context.getResources().getDrawable(R.drawable.answer);
         //Will need to incorperate a method that does the above to a different view than main_activity
-        shakeVibrationEvent();
+        //shakeVibrationEvent();
     }
     
     public void shakeVibrationEvent() {
