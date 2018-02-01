@@ -79,8 +79,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void handleShakeEvent() {
         Intent intent = new Intent(this, BallScreenActivity.class);
-        //generate a number between 0 - 19.  This correlates to the background image name.
-        //int random = new Random().nextInt(20) + 0;
         startActivity(intent);
         //Toast.makeText(getApplicationContext(), response[random].toString(), Toast.LENGTH_LONG).show();
         //Drawable answerTriangle = context.getResources().getDrawable(R.drawable.answer);
@@ -88,9 +86,5 @@ public class MainActivity extends AppCompatActivity {
         //shakeVibrationEvent();
     }
     
-    public void shakeVibrationEvent() {
-        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        // Vibrate for 500 milliseconds
-        v.vibrate(500);
-    }
+
 }
